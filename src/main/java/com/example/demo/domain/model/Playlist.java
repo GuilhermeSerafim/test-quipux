@@ -1,6 +1,8 @@
 package com.example.demo.domain.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.List;
 
 @Entity
@@ -9,12 +11,12 @@ public class Playlist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull(message = "O nome da playlist é obrigatório")
     private String nome;
     private String descricao;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) // Relacionando um para muitos (uma play pode ter várias músicas)
-    private List<Music> musicas;
+    private List<Musica> musicas;
 
     public Long getId() {
         return id;
@@ -40,11 +42,11 @@ public class Playlist {
         this.descricao = descricao;
     }
 
-    public List<Music> getMusicas() {
+    public List<Musica> getMusicas() {
         return musicas;
     }
 
-    public void setMusicas(List<Music> musicas) {
+    public void setMusicas(List<Musica> musicas) {
         this.musicas = musicas;
     }
 }

@@ -30,9 +30,13 @@ public class PlaylistService {
         return repository.findByNome(nome);
     }
 
-    public void deletarPorNome(String nome) {
-        Playlist playlist = repository.findByNome(nome)
-                .orElseThrow(() -> new IllegalArgumentException("Lista não encontrada."));
-        repository.delete(playlist);
+    public boolean deletarPorNome(String nome) {
+        Optional<Playlist> playlist = repository.findByNome(nome);
+        if (playlist.isPresent()) {
+            repository.delete(playlist.get());
+            return true;
+        }
+        return false;
     }
+
 }
