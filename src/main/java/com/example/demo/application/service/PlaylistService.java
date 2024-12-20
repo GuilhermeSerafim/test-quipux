@@ -27,11 +27,11 @@ public class PlaylistService {
     }
 
     public Optional<Playlist> buscarPorNome(String nome) {
-        return repository.buscarPorNome(nome);
+        return repository.findByNome(nome);
     }
 
     public void deletarPorNome(String nome) {
-        Playlist playlist = repository.buscarPorNome(nome)
+        Playlist playlist = repository.findByNome(nome)
                 .orElseThrow(() -> new IllegalArgumentException("Lista não encontrada."));
         repository.delete(playlist);
     }

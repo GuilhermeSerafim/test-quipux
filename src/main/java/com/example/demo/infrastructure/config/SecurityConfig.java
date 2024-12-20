@@ -15,7 +15,8 @@ public class SecurityConfig {
                         .anyRequest().authenticated() // Requer autenticação para outros endpoints
                 )
                 .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable())) // Permite exibição do H2 Console
-                .formLogin(form -> form.defaultSuccessUrl("/h2-console", true)); // Configura login padrão e redireciona para o H2 Console
+                .formLogin(form -> form.defaultSuccessUrl("/h2-console", true)) // Configura login padrão e redireciona para o H2 Console
+                .httpBasic(h -> {}); // Configura autenticação HTTP Basic
         return http.build();
     }
 }
