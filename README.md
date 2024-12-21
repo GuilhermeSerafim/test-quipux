@@ -1,8 +1,8 @@
 
-```markdown
+
 # Test Quipux - Backend
 
-Este é o repositório do backend para o projeto **Test Quipux**, desenvolvido utilizando **Spring Boot**.
+Este é o repositório do backend para o projeto *Test Quipux*, desenvolvido utilizando **Spring Boot**.
 
 ## Tecnologias Utilizadas
 
@@ -12,7 +12,6 @@ Este é o repositório do backend para o projeto **Test Quipux**, desenvolvido u
 - **JWT (JSON Web Tokens)**: Para autenticação e autorização.
 
 ## Como Executar
-```
 1. Clone este repositório:
    ```bash
    git clone https://github.com/GuilhermeSerafim/test-quipux-back.git
